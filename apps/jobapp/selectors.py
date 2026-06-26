@@ -11,10 +11,11 @@ def search_jobs(title_or_company: str | None = None, location: str | None = None
 
     if title_or_company:
         job_list = job_list.filter(title__icontains=title_or_company) | job_list.filter(company_name__icontains=title_or_company)
-        
+
     if location:
         job_list = job_list.filter(location__icontains=location)
 
     if job_type:
         job_list = job_list.filter(job_type__iexact=job_type)
+
     return job_list
